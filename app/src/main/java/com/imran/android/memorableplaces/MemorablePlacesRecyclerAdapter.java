@@ -1,7 +1,37 @@
 package com.imran.android.memorableplaces;
 
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 /**
  * Created by Shah Md Imran Hossain on 07, November, 2020
  */
-public class MemorablePlacesRecyclerAdapter {
+public class MemorablePlacesRecyclerAdapter extends RecyclerView.Adapter<MemorablePlacesRecyclerAdapter.ViewHolder> {
+
+
+    @NonNull
+    @Override
+    public MemorablePlacesRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MemorablePlacesRecyclerAdapter.ViewHolder holder, int position) {
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+    }
 }
