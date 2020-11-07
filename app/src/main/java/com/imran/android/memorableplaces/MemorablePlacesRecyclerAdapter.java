@@ -23,11 +23,12 @@ public class MemorablePlacesRecyclerAdapter extends RecyclerView.Adapter<Memorab
         layoutInflater = LayoutInflater.from(context);
         this.memorablePlaces = memorablePlaces;
     }
-    
+
     @NonNull
     @Override
     public MemorablePlacesRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View itemView = layoutInflater.inflate(R.layout.item_memorable_places, parent, false);
+        return new ViewHolder(itemView);
     }
 
     @Override
