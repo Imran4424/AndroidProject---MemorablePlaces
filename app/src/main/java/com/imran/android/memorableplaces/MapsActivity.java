@@ -2,6 +2,8 @@ package com.imran.android.memorableplaces;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -15,6 +17,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public static String currentPlace = "";
     private final String ADD_PLACE_STRING = "Add a new place...";
     private GoogleMap mMap;
+    LocationManager locationManager;
+    LocationListener locationListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (currentPlace == ADD_PLACE_STRING) {
             //Zoom in on user location
         } else {
-            
+            // View That Location
         }
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
