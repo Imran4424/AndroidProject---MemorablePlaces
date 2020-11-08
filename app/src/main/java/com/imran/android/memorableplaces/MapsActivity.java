@@ -22,6 +22,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -111,11 +113,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             if (listAddress != null && listAddress.size() > 0) {
                 if (listAddress.get(0).getSubThoroughfare() != null) {
-                    address += listAddress.get(0).getSubThoroughfare();
+                    address += listAddress.get(0).getSubThoroughfare() + " ";
                 }
+
+                address += listAddress.get(0).getThoroughfare();
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        if (address.isEmpty()) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            address += simpleDateFormat.format(new Date());
         }
         mMap.addMarker(new MarkerOptions().position(latLng).title("Your new memorable places"));
     }
