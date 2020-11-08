@@ -4,20 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.location.Address;
 import android.os.Bundle;
+
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     static List<String> placesName = new ArrayList<String>();
+    static List<LatLng> locations = new ArrayList<LatLng>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        placesName.add("Add a new place...");
+        if (placesName.size() < 1) {
+            placesName.add("Add a new place...");
+        }
 
         final RecyclerView recyclerView = findViewById(R.id.placeRecyclerView);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

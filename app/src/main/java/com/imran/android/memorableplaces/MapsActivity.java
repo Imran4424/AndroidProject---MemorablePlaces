@@ -100,6 +100,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         } else {
             // View That Location
+            Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+
         }
     }
 
@@ -126,7 +128,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             address += simpleDateFormat.format(new Date());
         }
-        mMap.addMarker(new MarkerOptions().position(latLng).title("Your new memorable places"));
+        mMap.addMarker(new MarkerOptions().position(latLng).title(address));
 
         MainActivity.addPlaces(address);
     }
