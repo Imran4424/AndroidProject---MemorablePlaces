@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (placesName.size() < 1) {
             placesName.add("Add a new place...");
+            locations.add(new LatLng(0, 0));
         }
 
         final RecyclerView recyclerView = findViewById(R.id.placeRecyclerView);
@@ -33,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(memorablePlacesRecyclerAdapter);
     }
 
-    static void addPlaces(String place) {
+    static void addLocations(String place, LatLng latLng) {
         placesName.add(place);
+        locations.add(latLng);
     }
 }

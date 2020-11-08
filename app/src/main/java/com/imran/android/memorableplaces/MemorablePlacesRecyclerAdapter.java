@@ -36,6 +36,7 @@ public class MemorablePlacesRecyclerAdapter extends RecyclerView.Adapter<Memorab
     @Override
     public void onBindViewHolder(@NonNull MemorablePlacesRecyclerAdapter.ViewHolder holder, int position) {
         holder.placeName.setText(memorablePlaces.get(position));
+        holder.position = position;
     }
 
     @Override
@@ -45,6 +46,8 @@ public class MemorablePlacesRecyclerAdapter extends RecyclerView.Adapter<Memorab
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView placeName;
+        public int position;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             placeName = itemView.findViewById(R.id.textViewPlaces);
@@ -53,7 +56,7 @@ public class MemorablePlacesRecyclerAdapter extends RecyclerView.Adapter<Memorab
                 @Override
                 public void onClick(View v) {
                     Intent mapIntent = new Intent(context, MapsActivity.class);
-                    MapsActivity.currentPlace = placeName.getText().toString();
+                    MapsActivity.position = position;
 
                     context.startActivity(mapIntent);
                 }

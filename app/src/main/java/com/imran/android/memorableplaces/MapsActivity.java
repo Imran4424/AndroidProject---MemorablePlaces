@@ -14,6 +14,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -28,7 +29,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
-    public static String currentPlace = "";
+    public static int position;
     private final String ADD_PLACE_STRING = "Add a new place...";
     private GoogleMap mMap;
     LocationManager locationManager;
@@ -81,7 +82,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         mMap.setOnMapLongClickListener(this);
 
-        if (currentPlace.equals(ADD_PLACE_STRING)) {
+        if (MainActivity.placesName.get(position).equals(ADD_PLACE_STRING)) {
             //Zoom in on user location
             locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
             locationListener = new LocationListener() {
@@ -100,7 +101,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         } else {
             // View That Location
-            Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
 
         }
     }
@@ -130,6 +130,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         mMap.addMarker(new MarkerOptions().position(latLng).title(address));
 
-        MainActivity.addPlaces(address);
+        MainActivity.addLocations(address, latLng);
+
+        Toast.makeText(this, "Location Saved!", Toast.LENGTH_SHORT);
     }
 }
