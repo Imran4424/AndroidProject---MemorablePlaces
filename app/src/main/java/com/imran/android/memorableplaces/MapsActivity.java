@@ -2,6 +2,7 @@ package com.imran.android.memorableplaces;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -53,6 +54,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if (currentPlace == ADD_PLACE_STRING) {
             //Zoom in on user location
+            locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+            
         } else {
             // View That Location
         }
