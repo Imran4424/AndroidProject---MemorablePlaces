@@ -13,6 +13,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     public static String currentPlace = "";
+    private final String ADD_PLACE_STRING = "Add a new place...";
     private GoogleMap mMap;
 
     @Override
@@ -38,6 +39,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        if (currentPlace == ADD_PLACE_STRING) {
+            //Zoom in on user location
+        } else {
+            
+        }
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
