@@ -1,6 +1,7 @@
 package com.imran.android.memorableplaces;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,15 @@ public class MemorablePlacesRecyclerAdapter extends RecyclerView.Adapter<Memorab
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             placeName = itemView.findViewById(R.id.textViewPlaces);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mapIntent = new Intent(context, MapsActivity.class);
+
+                    context.startActivity(mapIntent);
+                }
+            });
         }
     }
 }
