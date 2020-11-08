@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,18 +34,19 @@ public class MemorablePlacesRecyclerAdapter extends RecyclerView.Adapter<Memorab
 
     @Override
     public void onBindViewHolder(@NonNull MemorablePlacesRecyclerAdapter.ViewHolder holder, int position) {
-
+        holder.placeName.setText(memorablePlaces.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return memorablePlaces.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
+        public final TextView placeName;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            placeName = itemView.findViewById(R.id.textViewPlaces);
         }
     }
 }
