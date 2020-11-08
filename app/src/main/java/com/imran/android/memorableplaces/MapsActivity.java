@@ -2,6 +2,7 @@ package com.imran.android.memorableplaces;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -19,6 +20,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     LocationManager locationManager;
     LocationListener locationListener;
+
+    void centerMapOnLocation(Location location, String title) {
+        LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
+        mMap.clear();
+        mMap.addMarker(new MarkerOptions().position(userLocation).title(title));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 10));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
