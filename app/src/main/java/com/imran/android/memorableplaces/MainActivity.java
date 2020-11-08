@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        
+        final MemorablePlacesRecyclerAdapter memorablePlacesRecyclerAdapter = new MemorablePlacesRecyclerAdapter(this, placesName);
+        recyclerView.setAdapter(memorablePlacesRecyclerAdapter);
     }
 }
