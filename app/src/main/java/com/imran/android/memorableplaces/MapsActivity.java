@@ -1,6 +1,7 @@
 package com.imran.android.memorableplaces;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -76,6 +77,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     centerMapOnLocation(location, "Your Location");
                 }
             };
+
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            }
         } else {
             // View That Location
         }
