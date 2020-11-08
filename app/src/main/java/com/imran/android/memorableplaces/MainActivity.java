@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    List<String> placesName = new ArrayList<String>();
+    static List<String> placesName = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         final MemorablePlacesRecyclerAdapter memorablePlacesRecyclerAdapter = new MemorablePlacesRecyclerAdapter(this, placesName);
         recyclerView.setAdapter(memorablePlacesRecyclerAdapter);
+    }
+
+    static void addPlaces(String place) {
+        placesName.add(place);
     }
 }

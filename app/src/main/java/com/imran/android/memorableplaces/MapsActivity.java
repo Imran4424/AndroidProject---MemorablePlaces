@@ -122,10 +122,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             e.printStackTrace();
         }
 
-        if (address.isEmpty()) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        if (address.equals("")) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             address += simpleDateFormat.format(new Date());
         }
         mMap.addMarker(new MarkerOptions().position(latLng).title("Your new memorable places"));
+
+        MainActivity.addPlaces(address);
     }
 }
