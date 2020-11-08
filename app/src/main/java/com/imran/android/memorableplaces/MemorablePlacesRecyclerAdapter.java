@@ -53,6 +53,7 @@ public class MemorablePlacesRecyclerAdapter extends RecyclerView.Adapter<Memorab
                 @Override
                 public void onClick(View v) {
                     Intent mapIntent = new Intent(context, MapsActivity.class);
+                    MapsActivity.currentPlace = placeName.getText().toString();
 
                     context.startActivity(mapIntent);
                 }
