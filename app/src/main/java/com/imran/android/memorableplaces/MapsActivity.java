@@ -53,7 +53,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        if (currentPlace == ADD_PLACE_STRING) {
+        if (currentPlace.equals(ADD_PLACE_STRING)) {
             //Zoom in on user location
             locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
             locationListener = new LocationListener() {
