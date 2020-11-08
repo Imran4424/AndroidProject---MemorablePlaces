@@ -31,12 +31,13 @@ public class MainActivity extends AppCompatActivity {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        MemorablePlacesRecyclerAdapter memorablePlacesRecyclerAdapter = new MemorablePlacesRecyclerAdapter(this, placesName);
+        memorablePlacesRecyclerAdapter = new MemorablePlacesRecyclerAdapter(this, placesName);
         recyclerView.setAdapter(memorablePlacesRecyclerAdapter);
     }
 
     static void addLocations(String place, LatLng latLng) {
         placesName.add(place);
         locations.add(latLng);
+        memorablePlacesRecyclerAdapter.notifyDataSetChanged();
     }
 }
