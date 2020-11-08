@@ -20,7 +20,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
     public static String currentPlace = "";
     private final String ADD_PLACE_STRING = "Add a new place...";
     private GoogleMap mMap;
@@ -72,6 +72,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setOnMapLongClickListener(this);
 
         if (currentPlace.equals(ADD_PLACE_STRING)) {
             //Zoom in on user location
@@ -93,5 +94,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } else {
             // View That Location
         }
+    }
+
+    @Override
+    public void onMapLongClick(LatLng latLng) {
+        mMap.addMarker(new MarkerOptions().position(latLng).title("Your new memorable places"));
     }
 }
