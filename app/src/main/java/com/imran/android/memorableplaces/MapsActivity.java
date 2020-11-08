@@ -101,7 +101,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         } else {
             // View That Location
-
+            Location placeLocation = new Location(LocationManager.GPS_PROVIDER);
+            placeLocation.setLatitude(MainActivity.locations.get(position).latitude);
+            placeLocation.setLongitude(MainActivity.locations.get(position).longitude);
         }
     }
 
